@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-<LinearLayout
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_landing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_back"
+        android:tint="#FFFFFF"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:paddingBottom="15dp"
+        android:id="@+id/back"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="0dp"
@@ -14,6 +32,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="com.somecompany.homeaway.HomeProfileActivity">
+
     <ImageView
         android:id="@+id/propertyPicture"
         android:scaleType="centerCrop"
@@ -21,12 +40,17 @@
         android:layout_height="500dp"
         android:adjustViewBounds="true" />
     <LinearLayout
+        android:layout_below="@+id/propertyPicture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="bottom"
         android:gravity="center|left"
-        android:paddingLeft="20dp">
+        android:paddingLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp">
         <TextView
             android:id="@+id/propertyTitle"
             android:layout_width="wrap_content"
@@ -70,5 +94,6 @@
             android:textSize="14dp"
             android:textStyle="normal"/>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
 </ScrollView>
+</RelativeLayout>

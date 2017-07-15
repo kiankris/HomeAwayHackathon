@@ -21,19 +21,20 @@ import java.util.List;
 
 public class Utils {
     private static final String TAG = "Utils";
-    public static Profile selectedProfile;
+    public static HouseListing selectedProfile;
 
-    public static List<Profile> loadProfiles(Context context){
+    public static List<HouseListing> loadProfiles(Context context){
         try{
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
-            JSONArray array = new JSONArray(loadJSONFromAsset(context, "profiles.json"));
-            List<Profile> profileList = new ArrayList<>();
+            //JSONArray array = new JSONArray(loadJSONFromAsset(context, "profiles.json"));
+            JSONArray array = new JSONArray(loadJSONFromAsset(context, "houses.json"));
+            List<HouseListing> houseList = new ArrayList<>();
             for(int i=0;i<array.length();i++){
-                Profile profile = gson.fromJson(array.getString(i), Profile.class);
-                profileList.add(profile);
+                HouseListing profile = gson.fromJson(array.getString(i), HouseListing.class);
+                houseList.add(profile);
             }
-            return profileList;
+            return houseList;
         }catch (Exception e){
             e.printStackTrace();
             return null;

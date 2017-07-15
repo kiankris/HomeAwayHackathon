@@ -27,10 +27,10 @@ public class HomeProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_profile);
 
         TextView title = (TextView) findViewById(R.id.propertyTitle);
-        title.setText(Utils.selectedProfile.getName());
+        title.setText(Utils.selectedProfile.getLocation());
 
         TextView location = (TextView) findViewById(R.id.propertyLocation);
-        location.setText(Utils.selectedProfile.getLocation());
+        location.setText(Utils.selectedProfile.getTitle());
 
         ImageView image = (ImageView) findViewById(R.id.propertyPicture);
         String url = Utils.selectedProfile.getImageUrl();
@@ -41,13 +41,13 @@ public class HomeProfileActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.propertyBedroom)).setText("Num Bedrooms = 2");
         ((TextView) findViewById(R.id.propertyPetStatus)).setText("Property is pet friendly");
 
-        /*try{
-
-
-            Bitmap bitmap = BitmapFactory.decodeStream((InputStream)new URL(Utils.selectedProfile.getImageUrl()).getContent());
-            image.setImageBitmap(bitmap);
-        }
-        catch(Exception e){}*/
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.back);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 

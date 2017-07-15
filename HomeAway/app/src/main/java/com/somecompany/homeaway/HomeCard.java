@@ -34,11 +34,11 @@ public class HomeCard {
         @View(R.id.locationNameTxt)
         private TextView locationNameTxt;
 
-        public Profile mProfile;
+        public HouseListing mProfile;
         private Context mContext;
         private SwipePlaceHolderView mSwipeView;
 
-        public HomeCard(Context context, Profile profile, SwipePlaceHolderView swipeView) {
+        public HomeCard(Context context, HouseListing profile, SwipePlaceHolderView swipeView) {
             mContext = context;
             mProfile = profile;
             mSwipeView = swipeView;
@@ -47,8 +47,8 @@ public class HomeCard {
         @Resolve
         private void onResolved(){
             Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
-            nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
-            locationNameTxt.setText(mProfile.getLocation());
+            nameAgeTxt.setText(mProfile.getLocation());
+            locationNameTxt.setText(mProfile.getTitle());
         }
 
         @SwipeOut
