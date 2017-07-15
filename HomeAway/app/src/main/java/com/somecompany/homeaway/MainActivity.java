@@ -1,5 +1,6 @@
 package com.somecompany.homeaway;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,45 +9,55 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.mindorks.placeholderview.SwipeDecor;
+import com.mindorks.placeholderview.SwipePlaceHolderView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private SwipePlaceHolderView mSwipeView;
+    private Context mContext;
+    private ArrayList<HomeCard> homes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+        mSwipeView = (SwipePlaceHolderView)findViewById(R.id.swipeView);
+        mContext = getApplicationContext();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        mSwipeView.getBuilder()
+                .setDisplayViewCount(3)
+                .setSwipeDecor(new SwipeDecor()
+                        .setPaddingTop(20)
+                        .setRelativeScale(0.01f)
+                        .setSwipeInMsgLayoutId(R.layout.tinder_swipe_in_msg_view)
+                        .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out_msg_view));
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        //TODO: Make an array of locations, show loading screen when populating array
+        //TODO: Give each of them a unique id, add a listener to each(?)
+        for(Profile profile : Utils.loadProfiles(this.getApplicationContext())){
+            HomeCard newHome = new HomeCard(mContext, profile, mSwipeView);
+            mSwipeView.addView( newHome);
+            homes.add(newHome);
         }
 
-        return super.onOptionsItemSelected(item);
+
+        findViewById(R.id.rejectBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.doSwipe(false);
+            }
+        });
+
+        findViewById(R.id.acceptBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.doSwipe(true);
+            }
+        });
     }
 }
