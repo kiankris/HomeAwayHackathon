@@ -1,0 +1,85 @@
+package com.somecompany.homeaway;
+
+import java.util.ArrayList;
+
+/**
+ * Created by David_000 on 7/15/2017.
+ */
+
+public class Preferences {
+    private int priceMax;
+    private int priceMin;
+    private ArrayList<String> locations;
+    private boolean wheelChairAccessible;
+    private boolean petFriendly;
+    private int numRooms;
+    private int numBaths;
+    private boolean airConditioning;
+
+    public ArrayList<String> getLocations() {
+        return locations;
+    }
+    public boolean removeLocation(String loc){
+        return locations.remove(loc);
+    }
+
+    public void setLocations(ArrayList<String> locations) {
+        this.locations = locations;
+    }
+
+    public int getPriceMin() {
+        return priceMin;
+    }
+
+    public void setPriceMin(int priceMin) {
+        this.priceMin = priceMin;
+    }
+
+    public int getPriceMax() {
+        return priceMax;
+    }
+
+    public void setPriceMax(int priceMax) {
+        this.priceMax = priceMax;
+    }
+
+    public boolean isAirConditioning() {
+        return airConditioning;
+    }
+
+    public void setAirConditioning(boolean airConditioning) {
+        this.airConditioning = airConditioning;
+    }
+
+    public int getNumBaths() {
+        return numBaths;
+    }
+
+    public void setNumBaths(int numBaths) {
+        this.numBaths = numBaths;
+    }
+
+    public int getNumRooms() {
+        return numRooms;
+    }
+
+    public void setNumRooms(int numRooms) {
+        this.numRooms = numRooms;
+    }
+
+    public boolean isPetFriendly() {
+        return petFriendly;
+    }
+
+    public void setPetFriendly(boolean petFriendly) {
+        this.petFriendly = petFriendly;
+    }
+
+    public boolean isWheelChairAccessible() {
+        return wheelChairAccessible;
+    }
+
+    public void setWheelChairAccessible(boolean wheelChairAccessible) {
+        this.wheelChairAccessible = wheelChairAccessible;
+    }
+}
