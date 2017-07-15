@@ -1,4 +1,4 @@
-Summerlin Beautiful Home with Pool & Spa 3 bedrooms 3 baths
+﻿Summerlin Beautiful Home with Pool & Spa 3 bedrooms 3 baths
 https://www.homeaway.com/vacation-rental/p485960vb
 Las Vegas, Nevada, United States 
 275
@@ -107,3 +107,107 @@ Seminyak, Kuta, Badung Regency, Bali, Republic of Indonesia
 3
 3
 false
+
+1705 Carla Ridge BEVERLY HILLS/CA 90210 https://www.homeaway.com/vacation-rental/p4438104
+	Beverly Hills,California,United States
+	3644
+	5 
+	8 
+	false
+	
+TokyoSHINJUKU 2BR Family GroupWIFI
+https://www.homeaway.com/vacation-rental/p4031167
+	Tokyo,None,Japan
+	153
+	2
+	1
+	false
+
+Downtown Austin Very private home
+https://www.homeaway.com/vacation-rental/p3638464
+	Austin,Texas,United States
+	257
+	2
+	1
+	false
+
+4BR/2BA Beautiful Cottage at Lake Austin, Sleeps 8-10
+https://www.homeaway.com/vacation-rental/p483325vb
+	Austin,Texas,United States
+	270
+	4
+	2
+	true
+
+Travis Heights Playground - perfect outdoor space!
+https://www.homeaway.com/vacation-rental/p4609353
+	Austin,Texas,United States
+	425
+	3
+	2
+	true
+
+Apartment Q & A Hotel in New York/ Manhattan, New York
+https://www.homeaway.com/vacation-rental/p2619854
+	New York,New York,United States
+	467
+	1
+	1
+	false
+
+DELUXE SUITE FOR 5 IN SOHO
+https://www.homeaway.com/vacation-rental/p4138073
+	New York,New York,United States
+	673
+	1
+	1
+	true
+
+Beautiful Kitsilano Home with huge private patio!
+https://www.homeaway.com/vacation-rental/p4637347
+	Vancouver,British Columbia,Canada
+	440
+	4
+	1
+	false
+
+Luxury Modern condo with balcony
+https://www.homeaway.com/vacation-rental/p4594382
+	Vancouver,British Columbia,Canada
+	188
+	1
+	1
+	false
+
+Large Central Vancouver 2 Bed+2 Bath Apartment With Parking, Pool, Netflix
+https://www.homeaway.com/vacation-rental/p1069779vb
+	Vancouver,British Columbia,Canada
+	395
+	2
+	2
+	false
+
+Apartment 760 m from the center of Berlin with Lift, Terrace, Washing machine (379232)
+https://www.homeaway.com/vacation-rental/p6036973
+	Berlin,None,Germany
+	242
+	2
+	0
+	false
+
+Large, Updated 4 BR Flat. Great for Families, Close to Parks.
+https://www.homeaway.com/vacation-rental/p192243vb
+	San Francisco,California,United States
+	529
+	4
+	2
+	false
+
+Ocean View Beach House In Moss Beach!!!! Close To Half Moon Bay
+https://www.homeaway.com/vacation-rental/p516132vb
+	San Francisco,California,United States
+	368
+	1
+	1
+	false
+
