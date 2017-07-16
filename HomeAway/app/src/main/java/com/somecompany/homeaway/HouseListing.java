@@ -99,8 +99,9 @@ public class HouseListing implements Comparable<HouseListing>{
 
     public void setRank(Preferences p) {
         int rank = 0;
-        if(p.getLocations().contains(this.location)){
-            rank++;
+        String sterilizedLocation = this.location.replaceAll("\\s+","");
+        if(p.getLocations().contains(sterilizedLocation)){
+            rank+= 7;
         }
         if(p.getPriceMin() < this.cost && this.cost <= p.getPriceMax()){
             rank++;
@@ -114,16 +115,15 @@ public class HouseListing implements Comparable<HouseListing>{
         if(p.isPetFriendly() == this.pet) {
             rank++;
         }
-
         this.rank = rank;
     }
 
     public int compareTo(HouseListing hl){
      if(this.getRank() < hl.getRank()){
-         return -1;
+         return 1;
      }
      else if(this.getRank() > hl.getRank()){
-         return 1;
+         return -1;
      }
      return 0;
     }

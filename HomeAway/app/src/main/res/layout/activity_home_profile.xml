@@ -19,6 +19,18 @@
         android:layout_marginBottom="15dp"
         android:paddingBottom="15dp"
         android:id="@+id/back"/>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:tint="#FFFFFF"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="80dp"
+        android:paddingBottom="15dp"
+        android:id="@+id/save"/>
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -37,7 +49,7 @@
         android:id="@+id/propertyPicture"
         android:scaleType="centerCrop"
         android:layout_width="400dp"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         android:adjustViewBounds="true" />
     <LinearLayout
         android:layout_below="@+id/propertyPicture"
@@ -57,21 +69,24 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
         <TextView
             android:id="@+id/propertyLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="14dp"
-            android:textStyle="normal"/>
+            android:textStyle="normal"
+            android:paddingTop="10dp"/>
         <TextView
             android:id="@+id/pricePerNiight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="14dp"
-            android:textStyle="normal"/>
+            android:textStyle="normal"
+            android:paddingTop="10dp"/>
         <TextView
             android:id="@+id/propertyBedroom"
             android:layout_width="wrap_content"

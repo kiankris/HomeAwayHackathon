@@ -1,7 +1,9 @@
 package com.somecompany.homeaway;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,15 +13,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
-    private ArrayList<HomeCard> homes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +54,24 @@ public class MainActivity extends AppCompatActivity {
 //            mSwipeView.addView( newHome);
 //            homes.add(newHome);
 //        }
-        Preferences p = new Preferences();
-        ListingManager lm = new ListingManager(getApplicationContext(), p);
+
+
+        try {
+            Utils.loadSettings(this);
+        }
+        catch(FileNotFoundException e){
+            try {
+                Utils.saveSettings(this);
+            } catch (IOException E) {
+                e.printStackTrace();
+            }
+        }
+
+        ListingManager lm = new ListingManager(getApplicationContext(), Utils.userPreferences);
 
         for(HouseListing listing : lm.getListings()){
             HomeCard newHome = new HomeCard(mContext, listing, mSwipeView);
             mSwipeView.addView( newHome);
-            homes.add(newHome);
         }
 
 
@@ -67,5 +88,23 @@ public class MainActivity extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+
+        findViewById(R.id.settings_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), PreferenceActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(Utils.settingsUpdated) {
+            Utils.settingsUpdated = false;
+            finish();
+            startActivity(getIntent());
+        }
     }
 }

@@ -1,5 +1,8 @@
 package com.somecompany.homeaway;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 /**
@@ -7,13 +10,36 @@ import java.util.ArrayList;
  */
 
 public class Preferences {
+    @SerializedName("priceMax")
+    @Expose
     private int priceMax;
+
+    @SerializedName("priceMin")
+    @Expose
     private int priceMin;
+
+    @SerializedName("locations")
+    @Expose
     private ArrayList<String> locations;
+
+    @SerializedName("wheelChairAccessible")
+    @Expose
     private boolean wheelChairAccessible;
+
+    @SerializedName("petFriendly")
+    @Expose
     private boolean petFriendly;
+
+    @SerializedName("numRooms")
+    @Expose
     private int numRooms;
+
+    @SerializedName("numBaths")
+    @Expose
     private int numBaths;
+
+    @SerializedName("airConditioning")
+    @Expose
     private boolean airConditioning;
 
     public ArrayList<String> getLocations() {

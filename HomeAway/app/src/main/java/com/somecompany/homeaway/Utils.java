@@ -10,10 +10,14 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by kushantha on 7/15/17.
@@ -22,6 +26,10 @@ import java.util.List;
 public class Utils {
     private static final String TAG = "Utils";
     public static HouseListing selectedProfile;
+    public static Preferences userPreferences = new Preferences();
+    public static File prefFile;
+    public static Gson gson = new Gson();
+    public static boolean settingsUpdated = false;
 
     public static List<HouseListing> loadProfiles(Context context){
         try{
@@ -39,6 +47,23 @@ public class Utils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void loadSettings(Context context) throws FileNotFoundException{
+        prefFile = new File(context.getFilesDir(), "preferences.json");
+        Scanner s = new Scanner(prefFile);
+        String test = "";
+        while(s.hasNext()){test +=s.next();}
+        userPreferences = gson.fromJson(test,Preferences.class);
+        s.close();
+    }
+
+    public static void saveSettings(Context context) throws IOException{
+        prefFile = new File(context.getFilesDir(), "preferences.json");
+        FileWriter stream = new FileWriter(prefFile);
+        gson.toJson(userPreferences,stream);
+        stream.flush();
+        stream.close();
     }
 
     private static String loadJSONFromAsset(Context context, String jsonFileName) {

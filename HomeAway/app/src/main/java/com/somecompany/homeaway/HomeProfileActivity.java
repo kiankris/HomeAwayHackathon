@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -36,16 +37,28 @@ public class HomeProfileActivity extends AppCompatActivity {
         String url = Utils.selectedProfile.getImageUrl();
         Glide.with(this).load(url).into(image);
 
-        ((TextView) findViewById(R.id.pricePerNiight)).setText("Price Per night = 300");
-        ((TextView) findViewById(R.id.propertyBathroom)).setText("Num Bathrooms = 2");
-        ((TextView) findViewById(R.id.propertyBedroom)).setText("Num Bedrooms = 2");
-        ((TextView) findViewById(R.id.propertyPetStatus)).setText("Property is pet friendly");
+        ((TextView) findViewById(R.id.pricePerNiight)).setText( "Price per night: $" + Integer.toString(
+                Utils.selectedProfile.getCost()));
+        ((TextView) findViewById(R.id.propertyBathroom)).setText("Number of bathrooms: " + Integer.toString(
+                Utils.selectedProfile.getBathrooms()));
+        ((TextView) findViewById(R.id.propertyBedroom)).setText("Number of bedrooms: " + Integer.toString(
+                Utils.selectedProfile.getBathrooms()));
+        String petStatus = (Utils.selectedProfile.isPet()) ? "Yes" : "No";
+        ((TextView) findViewById(R.id.propertyPetStatus)).setText("Pet friendly: " + petStatus);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.back);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.save);
+        fab2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(v.getContext(),"Saved!",Toast.LENGTH_SHORT).show();
             }
         });
 
