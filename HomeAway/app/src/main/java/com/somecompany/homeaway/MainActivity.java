@@ -39,7 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO: Make an array of locations, show loading screen when populating array
         //TODO: Give each of them a unique id, add a listener to each(?)
-        for(HouseListing listing : Utils.loadProfiles(this.getApplicationContext())){
+//        for(HouseListing listing : Utils.loadProfiles(this.getApplicationContext())){
+//            HomeCard newHome = new HomeCard(mContext, listing, mSwipeView);
+//            mSwipeView.addView( newHome);
+//            homes.add(newHome);
+//        }
+        Preferences p = new Preferences();
+        ListingManager lm = new ListingManager(getApplicationContext(), p);
+
+        for(HouseListing listing : lm.getListings()){
             HomeCard newHome = new HomeCard(mContext, listing, mSwipeView);
             mSwipeView.addView( newHome);
             homes.add(newHome);
