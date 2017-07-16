@@ -23,15 +23,16 @@ The following functionality is completed:
   * [X]  Add liked properties to a preferred list for viewing later
   * [ ]   View liked properties
   
-Upcoming features
+Upcoming features:
 
-1\. Easy Booking - link 
+1\. Easy Booking
 
 2\. Machine Learning for Smarter Listing Results
 
 3\. Browse Properties in Augmented Reality
 
 ## Notes
+![alt text](https://github.com/kiankris/HomeAwayHackathon/blob/master/Homeaway%20Data/Flow_Diagram.png)
 
 ## Developers
   Kushantha Attanayake <a href=https://github.com/kattanayake>(github)<a/>
