@@ -17,7 +17,7 @@ The following functionality is completed:
 
 2\. Filtered list results
   * [X]  Ability to rank properties according to user preferences
-  * [ ]  Ability for users to enter their preferences
+  * [X]  Ability for users to enter their preferences
 
 3\. Display Favorited Properties 
   * [X]  Add liked properties to a preferred list for viewing later
