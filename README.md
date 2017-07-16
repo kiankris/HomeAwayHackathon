@@ -5,7 +5,7 @@ Time spent: 12 hours spent in total
 ## The Problem Statement
   One of the biggest challenges any online travel platform faces, especially in the vacation rental space, is monthly active or even daily active users. How can travel booking companies such as HomeAway and Expedia increase user engagement frequency?
   
-  After our team came up with the idea do a swipe-based platform, we immediately decided what other futures to include. We first worked on the core functionality to ensure that the swiping mechanism worked, and then implemented as many features as the time constraint allowed, which are listed below. Considering the time constraint, our main goal was to show that the app could created and have a positive impact on creating recurring costumers at HomeAway.
+  After our team came up with the idea do a swipe-based platform, we immediately decided what other futures to include. We first worked on the core functionality to ensure that the swiping mechanism worked, and then implemented as many features as the time constraint allowed, which are listed below. Considering the time constraint, our main goal was to show the proof of concept that the app could be built as well as have a positive impact on creating recurring costumers at HomeAway.
   
 ## User Stories
 
@@ -23,6 +23,13 @@ The following functionality is completed:
   * [X]  Add liked properties to a preferred list for viewing later
   * [ ]   View liked properties
   
+Upcoming features
+
+1\. Easy Booking - link 
+
+2\. Machine Learning for Smarter Listing Results
+
+3\. Browse Properties in Augmented Reality
 
 ## Notes
 
