@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by kushantha on 7/15/17.
  */
 
-public class HouseListing {
+public class HouseListing implements Comparable<HouseListing>{
     @SerializedName("url")
     @Expose
     private String imageUrl;
@@ -35,6 +35,8 @@ public class HouseListing {
     @SerializedName("pet")
     @Expose
     private boolean pet;
+
+    private int rank;
 
     public String getTitle() {
         return title;
@@ -91,5 +93,38 @@ public class HouseListing {
 
     public void setPet(boolean pet) {
         this.pet = pet;
+    }
+
+    public int getRank() { return rank; }
+
+    public void setRank(Preferences p) {
+        int rank = 0;
+        if(p.getLocations().contains(this.location)){
+            rank++;
+        }
+        if(p.getPriceMin() < this.cost && this.cost <= p.getPriceMax()){
+            rank++;
+        }
+        if(p.getNumRooms() <= this.bedrooms){
+            rank++;
+        }
+        if(p.getNumBaths() <= this.getBathrooms()){
+            rank++;
+        }
+        if(p.isPetFriendly() == this.pet) {
+            rank++;
+        }
+
+        this.rank = rank;
+    }
+
+    public int compareTo(HouseListing hl){
+     if(this.getRank() < hl.getRank()){
+         return -1;
+     }
+     else if(this.getRank() > hl.getRank()){
+         return 1;
+     }
+     return 0;
     }
 }
